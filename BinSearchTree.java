@@ -145,15 +145,4 @@ class BinSearchTree
 		if (cur.right!=null)
 			print_tree(cur.right,out);
 	} 
-	
-	public void printInOrder(Node curr) // Prints in-order.
-	{
-		if (curr == null)
-		{
-			return;
-		}
-		printInOrder(curr.left);
-		System.out.print(curr.data + " ");
-		printInOrder(curr.right);
-	}
 }
