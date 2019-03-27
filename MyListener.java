@@ -89,12 +89,15 @@ public class MyListener implements ActionListener
 			
 			JComponent[] inputs = new JComponent[] {new JLabel("Student id: "), id, new JLabel("Faculty: "), faculty
 					, new JLabel("Major: "), major, new JLabel("Year: "), year };
-			int result = JOptionPane.showConfirmDialog(null,  inputs, "Insert new node",JOptionPane.PLAIN_MESSAGE);
+			Object[] options= {"Insert","Return to main menu"};
+			int result = JOptionPane.showOptionDialog(null,  inputs, "Insert new node",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,options,options[1]);
+			if(result==JOptionPane.YES_OPTION)
 			tree.insert(id.getText(), faculty.getText(), major.getText(), year.getText());
 		}
 		else if(e.getSource() == frame.find)
 		{
 			String id = JOptionPane.showInputDialog("Please enter student's id: ");
+			if(id!=null) {
 			Node n = tree.find(tree.root, id);
 			if(n == null)
 			{
@@ -103,6 +106,7 @@ public class MyListener implements ActionListener
 			else
 			{
 				JOptionPane.showMessageDialog(null, n);
+			}
 			}
 		}
 	}
